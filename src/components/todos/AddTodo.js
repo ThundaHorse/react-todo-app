@@ -4,7 +4,6 @@ export class AddTodo extends React.Component {
   state = {
     title: ''
   };
-
   // In this case, the state is in the AddTodo component. This would be component level state
   // In the other components, those were app level state so we had to pass up
 

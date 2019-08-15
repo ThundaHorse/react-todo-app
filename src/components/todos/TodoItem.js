@@ -24,13 +24,14 @@ export class TodoItem extends Component {
   // Bind 'this' so that markComplete has access to bind
   // <input type="checkbox" onChange={this.markComplete.bind(this)} />{' '}
   render() {
-    const { id, title } = this.props.todo;
+    const { id, title, completed } = this.props.todo;
     return (
       <div style={this.getStyle()}>
         <p>
           <input
             type="checkbox"
-            onChange={this.props.markComplete.bind(this, id)}
+            defaultChecked={completed}
+            onChange={this.props.markComplete.bind(this, id, completed)}
           />{' '}
           {title}
           <button
