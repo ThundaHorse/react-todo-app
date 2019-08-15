@@ -29,7 +29,7 @@ export class AddTodo extends React.Component {
           type="text"
           name="title"
           placeholder="Add todo item"
-          style={{ flex: '10', padding: '5px' }}
+          style={{ flex: '10', padding: '5px', borderRadius: '5px' }}
           value={this.state.title}
           onChange={this.onChange}
         />
@@ -37,7 +37,7 @@ export class AddTodo extends React.Component {
           type="submit"
           value="Submit"
           className="btn"
-          style={{ flex: '1' }}
+          style={{ flex: '1', marginLeft: '2px' }}
         />
       </form>
     );

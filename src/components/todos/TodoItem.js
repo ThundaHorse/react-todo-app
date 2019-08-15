@@ -7,6 +7,9 @@ export class TodoItem extends Component {
       background: '#f4f4f4',
       padding: '10px',
       borderBottom: '1px #ccc dotted',
+      borderRadius: '5px',
+      marginTop: '5px',
+      marginBottom: '5px',
       textDecoration: this.props.todo.completed ? 'line-through' : 'none'
     };
   };

@@ -16,9 +16,11 @@ class App extends React.Component {
   // };
 
   componentDidMount() {
-    axios.get('http://localhost:3000/api/todos').then((response) => {
-      this.setState({ todos: response.data });
-    });
+    axios
+      .get('https://whispering-peak-23705.herokuapp.com/api/todos')
+      .then((response) => {
+        this.setState({ todos: response.data });
+      });
   }
 
   // Receive markComplete from child component Todos which received from TodoItem
@@ -27,7 +29,9 @@ class App extends React.Component {
   // Marking complete
   markComplete = (id, completed) => {
     axios
-      .patch(`http://localhost:3000/api/todos/${id}`, { completed: !completed })
+      .patch(`https://whispering-peak-23705.herokuapp.com/api/todos/${id}`, {
+        completed: !completed
+      })
       .then((response) => {
         console.log(response.data);
         this.setState({
@@ -46,13 +50,15 @@ class App extends React.Component {
     // Aim is to remove the todo item that is 'removed'
     // Copy everything that is currently present so => use spread operator
     // After populating, return any todo where not equal to id passed in
-    axios.delete(`http://localhost:3000/api/todos/${id}`).then((response) => {
-      this.setState({
-        // Copy everything that is currently present so => use spread operator
-        // After populating, return any todo where not equal to id passed in
-        todos: [...this.state.todos.filter((todo) => todo.id !== id)]
+    axios
+      .delete(`https://whispering-peak-23705.herokuapp.com/api/todos/${id}`)
+      .then((response) => {
+        this.setState({
+          // Copy everything that is currently present so => use spread operator
+          // After populating, return any todo where not equal to id passed in
+          todos: [...this.state.todos.filter((todo) => todo.id !== id)]
+        });
       });
-    });
   };
 
   // Add
@@ -63,7 +69,7 @@ class App extends React.Component {
     };
 
     axios
-      .post('http://localhost:3001/api/todos', newTodo)
+      .post('https://whispering-peak-23705.herokuapp.com/api/todos', newTodo)
       .then((response) =>
         this.setState({ todos: [...this.state.todos, response.data] })
       );

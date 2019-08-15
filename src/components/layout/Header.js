@@ -10,6 +10,8 @@ export default function Header() {
 
 const headStyle = {
   textAlign: 'center',
+  marginTop: '10px',
   padding: '10px',
-  background: '#94D5EF'
+  background: '#94D5EF',
+  borderRadius: '5px'
 };
