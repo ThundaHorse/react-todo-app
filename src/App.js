@@ -1,9 +1,9 @@
-import React from 'react';
-import './App.css';
-import Todos from './components/todos/Todos';
-import Header from './components/layout/Header';
-import AddTodo from './components/todos/AddTodo';
-import axios from 'axios';
+import React from "react";
+import "./style/App.css";
+import Todos from "./components/todos/Todos";
+import Header from "./components/layout/Header";
+import AddTodo from "./components/todos/AddTodo";
+import axios from "axios";
 
 class App extends React.Component {
   constructor() {
@@ -11,18 +11,13 @@ class App extends React.Component {
     this.state = { todos: [] };
   }
 
-  // state = {
-  //   todos: []
-  // };
-
   componentDidMount() {
     axios
-      .get('https://whispering-peak-23705.herokuapp.com/api/todos')
+      .get("https://whispering-peak-23705.herokuapp.com/api/todos")
       .then((response) => {
         this.setState({ todos: response.data });
       });
   }
-
   // Receive markComplete from child component Todos which received from TodoItem
   // In order to know which item we're targetting, must bind 'this' at the beginning which is TodoItems and id
 
@@ -69,7 +64,7 @@ class App extends React.Component {
     };
 
     axios
-      .post('https://whispering-peak-23705.herokuapp.com/api/todos', newTodo)
+      .post("https://whispering-peak-23705.herokuapp.com/api/todos", newTodo)
       .then((response) =>
         this.setState({ todos: [...this.state.todos, response.data] })
       );
